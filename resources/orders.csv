@@ -1,0 +1,3 @@
+﻿CustomerID;EmployeeID;PurchaseOrderNumber;ShippingMethodID;FreightCharge;Taxes
+1;1;20221112345;7;5;1
+1;1;20221112346;7;5;1

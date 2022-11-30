@@ -1,6 +1,8 @@
 package db
 
 import (
+	"log"
+
 	"github.com/wldnist/jatis-simple-pos/models"
 )
 
@@ -33,4 +35,28 @@ func (db Database) GetAllOrders() (*models.OrderList, error) {
 	}
 
 	return list, nil
+}
+
+func (db Database) AddOrder(order *models.Order) error {
+	var orderID int64
+	sql := "INSERT INTO orders (customer_id, employee_id, purchase_order_number, shipping_method_id, freight_charge, taxes) VALUES (?,?,?,?,?,?)"
+	res, err := db.Conn.Exec(sql,
+		order.CustomerID,
+		order.EmployeeID,
+		order.PurchaseOrderNumber,
+		order.ShippingMethodID,
+		order.FreightCharge,
+		order.Taxes,
+	)
+	if err != nil {
+		return err
+	}
+
+	orderID, err = res.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	order.OrderID = orderID
+	return nil
 }

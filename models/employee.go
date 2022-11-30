@@ -40,3 +40,27 @@ func (*EmployeeList) Render(w http.ResponseWriter, r *http.Request) error {
 func (*Employee) Render(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
+
+type BulkEmployeeReq struct {
+	Url string `json:"url"`
+}
+
+type BulkEmployeeRes struct {
+	IDs []int64 `json:"ids"`
+}
+
+func (b *BulkEmployeeReq) Bind(r *http.Request) error {
+	if b.Url == "" {
+		return fmt.Errorf("url is a required field")
+	}
+
+	return nil
+}
+
+func (*BulkEmployeeReq) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}
+
+func (*BulkEmployeeRes) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}

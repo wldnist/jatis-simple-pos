@@ -17,8 +17,12 @@ func NewHandler(db db.Database) http.Handler {
 	router.MethodNotAllowed(methodNotAllowedHandler)
 	router.NotFound(notFoundHandler)
 
-	router.Route("/orders", orders)
 	router.Route("/shipping-methods", shippingMethods)
+	router.Route("/products", products)
+	router.Route("/employees", employees)
+	router.Route("/customers", customers)
+	router.Route("/orders", orders)
+	router.Route("/order-details", orderDetails)
 
 	return router
 }

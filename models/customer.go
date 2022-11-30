@@ -92,3 +92,27 @@ func (*CustomerList) Render(w http.ResponseWriter, r *http.Request) error {
 func (*Customer) Render(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
+
+type BulkCustomerReq struct {
+	Url string `json:"url"`
+}
+
+type BulkCustomerRes struct {
+	IDs []int64 `json:"ids"`
+}
+
+func (b *BulkCustomerReq) Bind(r *http.Request) error {
+	if b.Url == "" {
+		return fmt.Errorf("url is a required field")
+	}
+
+	return nil
+}
+
+func (*BulkCustomerReq) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}
+
+func (*BulkCustomerRes) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}

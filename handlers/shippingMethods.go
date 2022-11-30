@@ -10,7 +10,7 @@ import (
 )
 
 func shippingMethods(router chi.Router) {
-	router.Get("/bulk", createBulkShippingMethods)
+	router.Post("/bulk", createBulkShippingMethods)
 }
 
 func createBulkShippingMethods(w http.ResponseWriter, r *http.Request) {

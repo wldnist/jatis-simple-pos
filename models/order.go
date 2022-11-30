@@ -59,3 +59,27 @@ func (*OrderList) Render(w http.ResponseWriter, r *http.Request) error {
 func (*Order) Render(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
+
+type BulkOrderReq struct {
+	Url string `json:"url"`
+}
+
+type BulkOrderRes struct {
+	IDs []int64 `json:"ids"`
+}
+
+func (b *BulkOrderReq) Bind(r *http.Request) error {
+	if b.Url == "" {
+		return fmt.Errorf("url is a required field")
+	}
+
+	return nil
+}
+
+func (*BulkOrderReq) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}
+
+func (*BulkOrderRes) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}

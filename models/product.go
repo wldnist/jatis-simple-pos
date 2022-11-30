@@ -35,3 +35,27 @@ func (*ProductList) Render(w http.ResponseWriter, r *http.Request) error {
 func (*Product) Render(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
+
+type BulkProductReq struct {
+	Url string `json:"url"`
+}
+
+type BulkProductRes struct {
+	IDs []int64 `json:"ids"`
+}
+
+func (b *BulkProductReq) Bind(r *http.Request) error {
+	if b.Url == "" {
+		return fmt.Errorf("url is a required field")
+	}
+
+	return nil
+}
+
+func (*BulkProductReq) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}
+
+func (*BulkProductRes) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}
