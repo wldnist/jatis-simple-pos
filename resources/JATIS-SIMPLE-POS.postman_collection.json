@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "fde7b515-5935-4949-9275-d083ec10ca52",
+		"name": "JATIS-SIMPLE-POS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5186830"
+	},
+	"item": [
+		{
+			"name": "shipping-methods",
+			"item": [
+				{
+					"name": "createBulkShippingMethods",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/shipping-methods.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shipping-methods/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shipping-methods",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "createBulkProducts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/products.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "createBulkEmployees",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/employees.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employees/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "createBulkCustomers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/customers.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "createBulkOrders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/orders.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOrders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order-details",
+			"item": [
+				{
+					"name": "createBulkOrderDetails",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/order-details.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order-details/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-details",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCompleteAllOrderDetails",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/wldnist/jatis-simple-pos/main/resources/order-details.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order-details/bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-details",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

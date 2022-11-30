@@ -73,3 +73,42 @@ func (*BulkOrderDetailReq) Render(w http.ResponseWriter, r *http.Request) error 
 func (*BulkOrderDetailRes) Render(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
+
+type CompleteOrderDetailsSpec struct {
+	OrderID        int64   `json:"order_id"`
+	ProductID      int64   `json:"product_id"`
+	ProductName    string  `json:"product_name"`
+	Quantity       int     `json:"quantity"`
+	UnitPrice      float64 `json:"unit_price"`
+	Discount       float64 `json:"discount"`
+	CustomerName   string  `json:"customer_name"`
+	EmployeeName   string  `json:"employee_name"`
+	ShippingMethod string  `json:"shipping_method"`
+	SubTotal       float64 `json:"sub_total"`
+}
+
+type CompleteOrderDetails struct {
+	CustomerName   string             `json:"customer_name"`
+	EmployeeName   string             `json:"employee_name"`
+	ShippingMethod string             `json:"shipping_method"`
+	TotalPayment   float64            `json:"total_payment"`
+	OrderDetails   []OrderDetailsSpec `json:"order_details"`
+}
+
+type OrderDetailsSpec struct {
+	OrderID     int64   `json:"order_id"`
+	ProductID   int64   `json:"product_id"`
+	ProductName string  `json:"product_name"`
+	Quantity    int     `json:"quantity"`
+	UnitPrice   float64 `json:"unit_price"`
+	Discount    float64 `json:"discount"`
+	SubTotal    float64 `json:"sub_total"`
+}
+
+type GetCompleteAllOrderDetailsRes struct {
+	Result []CompleteOrderDetails `json:"result"`
+}
+
+func (*GetCompleteAllOrderDetailsRes) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}

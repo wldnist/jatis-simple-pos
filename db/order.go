@@ -8,7 +8,7 @@ import (
 
 func (db Database) GetAllOrders() (*models.OrderList, error) {
 	list := &models.OrderList{}
-	rows, err := db.Conn.Query("SELECT * FROM orders ORDER BY order_id ASC")
+	rows, err := db.Conn.Query("SELECT order_id, customer_id, employee_id, order_date, purchase_order_number, ship_date, shipping_method_id, freight_charge, taxes, payment_received, COALESCE(comment, '') as comment FROM orders ORDER BY order_id ASC")
 	if err != nil {
 		return list, err
 	}

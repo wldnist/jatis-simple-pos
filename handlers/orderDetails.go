@@ -12,6 +12,7 @@ import (
 
 func orderDetails(router chi.Router) {
 	router.Post("/bulk", createBulkOrderDetails)
+	router.Get("/complete", getCompleteAllOrderDetails)
 }
 
 func createBulkOrderDetails(w http.ResponseWriter, r *http.Request) {
@@ -60,5 +61,63 @@ func createBulkOrderDetails(w http.ResponseWriter, r *http.Request) {
 	if err := render.Render(w, r, bulkOrderDetailRes); err != nil {
 		render.Render(w, r, ServerErrorRenderer(err))
 		return
+	}
+}
+
+func getCompleteAllOrderDetails(w http.ResponseWriter, r *http.Request) {
+	getCompleteAllOrderDetails, err := dbInstance.GetCompleteAllOrderDetails()
+	if err != nil {
+		render.Render(w, r, ServerErrorRenderer(err))
+		return
+	}
+
+	getCompleteAllOrderDetailsRes := &models.GetCompleteAllOrderDetailsRes{}
+	orderIDs := make(map[int64]bool)
+	for _, row := range getCompleteAllOrderDetails {
+		if exist := orderIDs[row.OrderID]; !exist {
+			orderIDs[row.OrderID] = true
+		}
+	}
+
+	result := []models.CompleteOrderDetails{}
+	for orderID, _ := range orderIDs {
+		completeOrderDetails := models.CompleteOrderDetails{}
+		orderDetails := []models.OrderDetailsSpec{}
+		customerName := ""
+		employeeName := ""
+		shippingMethod := ""
+		totalPayment := float64(0)
+		for _, getCompleteAllOrderDetail := range getCompleteAllOrderDetails {
+			if getCompleteAllOrderDetail.OrderID == orderID {
+				customerName = getCompleteAllOrderDetail.CustomerName
+				employeeName = getCompleteAllOrderDetail.EmployeeName
+				shippingMethod = getCompleteAllOrderDetail.ShippingMethod
+				totalPayment += getCompleteAllOrderDetail.SubTotal
+				orderDetailsSpec := models.OrderDetailsSpec{
+					OrderID:     getCompleteAllOrderDetail.OrderID,
+					ProductID:   getCompleteAllOrderDetail.ProductID,
+					ProductName: getCompleteAllOrderDetail.ProductName,
+					Quantity:    getCompleteAllOrderDetail.Quantity,
+					UnitPrice:   getCompleteAllOrderDetail.UnitPrice,
+					Discount:    getCompleteAllOrderDetail.Discount,
+					SubTotal:    getCompleteAllOrderDetail.SubTotal,
+				}
+
+				orderDetails = append(orderDetails, orderDetailsSpec)
+			}
+		}
+
+		completeOrderDetails.CustomerName = customerName
+		completeOrderDetails.EmployeeName = employeeName
+		completeOrderDetails.ShippingMethod = shippingMethod
+		completeOrderDetails.TotalPayment = totalPayment
+		completeOrderDetails.OrderDetails = orderDetails
+
+		result = append(result, completeOrderDetails)
+	}
+
+	getCompleteAllOrderDetailsRes.Result = result
+	if err := render.Render(w, r, getCompleteAllOrderDetailsRes); err != nil {
+		render.Render(w, r, ErrorRenderer(err))
 	}
 }
