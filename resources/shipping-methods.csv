@@ -1,11 +1,11 @@
-﻿ShippingMethodID;ShippingMethod
-1;JNE
-2;J&T
-3;SiCepat
-4;NINJA Express
-5;Go Send
-6;GRAB Express
-7;UPS Ground
-8;FedEx
-9;TIKI
-10;POS Indonesia
+﻿ShippingMethod
+JNE
+J&T
+SiCepat
+NINJA Express
+Go Send
+GRAB Express
+UPS Ground
+FedEx
+TIKI
+POS Indonesia

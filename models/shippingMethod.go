@@ -29,3 +29,27 @@ func (*ShippingMethodList) Render(w http.ResponseWriter, r *http.Request) error 
 func (*ShippingMethod) Render(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
+
+type BulkShippingMethodReq struct {
+	Url string `json:"url"`
+}
+
+type BulkShippingMethodRes struct {
+	IDs []int64 `json:"ids"`
+}
+
+func (b *BulkShippingMethodReq) Bind(r *http.Request) error {
+	if b.Url == "" {
+		return fmt.Errorf("url is a required field")
+	}
+
+	return nil
+}
+
+func (*BulkShippingMethodReq) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}
+
+func (*BulkShippingMethodRes) Render(w http.ResponseWriter, r *http.Request) error {
+	return nil
+}

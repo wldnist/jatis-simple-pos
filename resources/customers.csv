@@ -1,0 +1,11 @@
+﻿CompanyName;FirstName;LastName;BillingAddress;City;StateOrProvince;ZIPCode;Email;PhoneNumber;ShipAddress;ShipCity;ShipStateOrProvince;ShipZIPCode;ShipPhoneNumber
+Contonso, Ltd;Adam;Bobrow;address 1;Irvine;Jawa Barat;12345;a@a.com;628123456781;address 1;Irvine;Jawa Barat;12345;628123456781
+Nokia Co,;Jack;Sparow;address 2;Texas;Jawa Barat;12346;b@b.com;628123456782;address 2;Texas;Jawa Barat;12346;628123456782
+Twitter;Luke;;address 3;Colorado;Jawa Barat;12347;c@c.com;628123456783;address 3;Colorado;Jawa Barat;12347;628123456783
+Meta;Mike;;address 4;Ohio;Jawa Barat;12348;d@d.com;628123456784;address 4;Ohio;Jawa Barat;12348;628123456784
+Google;Smith;;address 5;Tokyo;Jawa Barat;12349;e@e.com;628123456785;address 5;Tokyo;Jawa Barat;12349;628123456785
+Indocement;Anne;Marie;address 6;Irvine;Jawa Barat;12350;f@f.com;628123456786;address 6;Irvine;Jawa Barat;12350;628123456786
+A&T;Rio;Ferdinand;address 7;Jersey;Jawa Barat;12351;g@g.com;628123456787;address 7;Jersey;Jawa Barat;12351;628123456787
+Honda;Phil;Collins;address 8;London;Jawa Barat;12352;h@h.com;628123456788;address 8;London;Jawa Barat;12352;628123456788
+Toyota;John;;address 9;Miami;Jawa Barat;12353;i@i.com;628123456789;address 9;Miami;Jawa Barat;12353;628123456789
+Yamaha;Noah;;address 10;Irvine;Jawa Barat;12354;j@j.com;628123456790;address 10;Irvine;Jawa Barat;12354;628123456790
